@@ -25,8 +25,9 @@ def clean_line(line: str) -> str:
     ]
 
     for test in title_formats:
-        line_after_star = re.sub(test, r"\1SPLITHERE", line_after_star, flags=re.IGNORECASE)
-        if "SPLITHERE" in line_after_star and line_after_star.index("SPLITHERE") <= 30:
+        replaced = re.sub(test, r"\1SPLITHERE", line_after_star, flags=re.IGNORECASE)
+        if "SPLITHERE" in replaced and replaced.index("SPLITHERE") <= 30:
+            line_after_star = replaced
             break
 
     line_after_star = replace_author_and_pr_url(line_after_star)
