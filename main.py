@@ -123,6 +123,7 @@ def reorder_file(infile: TextIO, outfile: TextIO):
         outfile.write(replace_author_and_pr_url(line))
 
 
-with open("output.txt", "w") as outfile:
-    with open("input.txt") as infile:
-        reorder_file(infile, outfile)
+if __name__ == "__main__":
+    with open("output.txt", "w") as outfile:
+        with open("input.txt") as infile:
+            reorder_file(infile, outfile)
